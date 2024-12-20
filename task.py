@@ -13,13 +13,21 @@ def input_array():
         array.append(number)
     return array
 
-# Тестирование функций
-if __name__ == "__main__":
-    # Выбор источника данных
+# Диалог создания массива
+def create_array():
     choice = input("Выберите источник данных: 1 - Генерация, 2 - Ввод вручную: ")
     if choice == '1':
-        arr = generate_array(10)
+        size = int(input("Введите размер массива: "))
+        arr = generate_array(size)
         print("Сгенерированный массив:", arr)
     elif choice == '2':
         arr = input_array()
         print("Введенный массив:", arr)
+    else:
+        print("Неверный выбор")
+        return create_array()
+    return arr
+
+# Тестирование функции
+if __name__ == "__main__":
+    arr = create_array()
