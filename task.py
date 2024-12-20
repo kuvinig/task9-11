@@ -45,10 +45,25 @@ def task_1(arr1, arr2):
     result.sort()  # сортировка результирующего массива по возрастанию
     return result
 
-# Тестирование
+# Основное меню
+def main_menu():
+    while True:
+        print("\nМеню:")
+        print("1 - Задание 1")
+        print("2 - Завершить программу")
+        choice = input("Выберите пункт меню: ")
+        if choice == '1':
+            arr1 = create_array()
+            arr2 = create_array()
+            arr1, arr2 = sort_arrays(arr1, arr2)
+            result = task_1(arr1, arr2)
+            print("Результат выполнения алгоритма:", result)
+        elif choice == '2':
+            print("Завершение программы.")
+            break
+        else:
+            print("Неверный выбор. Пожалуйста, попробуйте снова.")
+
+# Запуск программы
 if __name__ == "__main__":
-    arr1 = create_array()
-    arr2 = create_array()
-    arr1, arr2 = sort_arrays(arr1, arr2)
-    result = task_1(arr1, arr2)
-    print("Результат выполнения алгоритма:", result)
+    main_menu()
