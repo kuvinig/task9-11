@@ -29,34 +29,38 @@ def create_array():
     return arr
 
 # Сортировка массива
-def sort_arrays(arr1, arr2):
+def sort_arrays(arr1, arr2, arr3):
     arr1.sort(reverse=True)  # сортировка по убыванию
     arr2.sort()  # сортировка по возрастанию
-    return arr1, arr2
+    arr3.sort(reverse=True)  # сортировка по убыванию для третьего массива
+    return arr1, arr2, arr3
 
-# Алгоритм для задания 1
-def task_1(arr1, arr2):
+# Задание 10 - Проверка арифметических операций между элементами массивов
+def task_10(array1, array2, array3):
+    """Проверка, можно ли получить числа из 3 массива с помощью арифметических преобразований двух других массивов."""
     result = []
-    for i in range(len(arr1)):
-        if arr1[i] == arr2[i]:
-            result.append(0)
+
+    for a1, a2, a3 in zip(array1, array2, array3):
+        if a1 + a2 == a3 or a1 - a2 == a3 or a1 * a2 == a3 or (a2 != 0 and a1 / a2 == a3):
+            result.append(True)
         else:
-            result.append(arr1[i] + arr2[i])
-    result.sort()  # сортировка результирующего массива по возрастанию
+            result.append(False)
+
     return result
 
 # Основное меню
 def main_menu():
     while True:
         print("\nМеню:")
-        print("1 - Задание 1")
+        print("1 - Задание 10")
         print("2 - Завершить программу")
         choice = input("Выберите пункт меню: ")
         if choice == '1':
             arr1 = create_array()
             arr2 = create_array()
-            arr1, arr2 = sort_arrays(arr1, arr2)
-            result = task_1(arr1, arr2)
+            arr3 = create_array()
+            arr1, arr2, arr3 = sort_arrays(arr1, arr2, arr3)
+            result = task_10(arr1, arr2, arr3)
             print("Результат выполнения алгоритма:", result)
         elif choice == '2':
             print("Завершение программы.")
