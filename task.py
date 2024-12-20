@@ -34,10 +34,21 @@ def sort_arrays(arr1, arr2):
     arr2.sort()  # сортировка по возрастанию
     return arr1, arr2
 
+# Алгоритм для задания 1
+def task_1(arr1, arr2):
+    result = []
+    for i in range(len(arr1)):
+        if arr1[i] == arr2[i]:
+            result.append(0)
+        else:
+            result.append(arr1[i] + arr2[i])
+    result.sort()  # сортировка результирующего массива по возрастанию
+    return result
+
 # Тестирование
 if __name__ == "__main__":
     arr1 = create_array()
     arr2 = create_array()
     arr1, arr2 = sort_arrays(arr1, arr2)
-    print("Отсортированный массив 1:", arr1)
-    print("Отсортированный массив 2:", arr2)
+    result = task_1(arr1, arr2)
+    print("Результат выполнения алгоритма:", result)
