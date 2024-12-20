@@ -28,6 +28,16 @@ def create_array():
         return create_array()
     return arr
 
-# Тестирование функции
+# Сортировка массива
+def sort_arrays(arr1, arr2):
+    arr1.sort(reverse=True)  # сортировка по убыванию
+    arr2.sort()  # сортировка по возрастанию
+    return arr1, arr2
+
+# Тестирование
 if __name__ == "__main__":
-    arr = create_array()
+    arr1 = create_array()
+    arr2 = create_array()
+    arr1, arr2 = sort_arrays(arr1, arr2)
+    print("Отсортированный массив 1:", arr1)
+    print("Отсортированный массив 2:", arr2)
